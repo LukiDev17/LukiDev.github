@@ -150,6 +150,20 @@
                 opacity: 0;
             }
         }
+
+        .locked-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ff0000;
+            padding: 20px;
+            border: 2px solid #ffcc00;
+            border-radius: 10px;
+            z-index: 1000;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -199,6 +213,10 @@
     <p>Visit LukiDev17's GitHub profile: <a href="https://github.com/LukiDev17" target="_blank">https://github.com/LukiDev17</a></p>
 </div>
 
+<div class="locked-message" id="locked-message">Die Seite wurde gesperrt!</div>
+
+<audio id="thunder-sound" src="https://www.soundjay.com/button/sounds/button-3.mp3"></audio>
+
 <script>
 function toggleVisibility(id) {
     var element = document.getElementById(id);
@@ -208,6 +226,31 @@ function toggleVisibility(id) {
         element.style.display = "none";
     }
 }
+
+var blitzElement = document.querySelector('.blitz');
+
+// Simuliere Blitz & Geräusch
+function simulateThunder() {
+    // Thunder sound
+    var thunderSound = document.getElementById('thunder-sound');
+    thunderSound.play();
+    
+    // Blitz-Effekt
+    blitzElement.style.opacity = 1; // Blitz sieht erstmal sichtbar aus
+    setTimeout(() => {
+        blitzElement.style.opacity = 0;
+    }, 200); // Blitz hält nur 200ms
+
+    // Seite sperren
+    setTimeout(() => {
+        document.body.style.pointerEvents = 'none'; // Deaktiviert alle Interaktionen
+        document.querySelector('.container').style.display = 'none'; // Versteckt den Inhalt
+        document.getElementById('locked-message').style.display = 'block'; // Zeige gesperrte Nachricht
+    }, 1000); // Nachricht erscheint nach 1 Sekunde
+}
+
+// Starte Simulation des Blitzes und Geräuschs nach einer Sekunde
+setTimeout(simulateThunder, 1000);
 </script>
 
 </body>
