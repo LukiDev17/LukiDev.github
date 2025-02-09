@@ -20,150 +20,7 @@
             opacity: 0;
             animation: fadeIn 1.5s forwards;
         }
-        h1 {
-            color: #ffcc00;
-            animation: bounce 1s;
-        }
-        h2 {
-            color: #ffcc00;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        h2:hover {
-            transform: scale(1.05);
-        }
-        p, ul {
-            font-size: 16px;
-            line-height: 1.5;
-            animation: slideIn 1s forwards;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        a {
-            color: #0099ff;
-            text-decoration: none;
-            transition: color 0.3s, transform 0.3s;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #0080cc;
-            transform: translateY(-2px);
-        }
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-            animation: fadeIn 1s forwards;
-            opacity: 0;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #444;
-            transition: background-color 0.3s;
-        }
-        th {
-            background-color: #3a3f47;
-        }
-        td {
-            background-color: #383e44;
-        }
-        tr:hover {
-            background-color: #444950;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            } 
-            40% {
-                transform: translateY(-10px);
-            } 
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        /* Blitz Animation */
-        .blitz {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            pointer-events: none;
-            z-index: 999;
-        }
-
-        .blitz::before {
-            content: "";
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateX(-50%) scale(1);
-            opacity: 0;
-            animation: blitz 1s infinite;
-            pointer-events: none;
-        }
-
-        @keyframes blitz {
-            0% {
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            30% {
-                opacity: 0.3;
-            }
-            40% {
-                opacity: 0;
-            }
-            80% {
-                opacity: 0.4;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-
-        .locked-message {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #ff0000;
-            padding: 20px;
-            border: 2px solid #ffcc00;
-            border-radius: 10px;
-            z-index: 1000;
-            text-align: center;
-        }
+        /* ... restlicher CSS ... */
     </style>
 </head>
 <body>
@@ -172,50 +29,15 @@
 
 <div class="container">
     <h1>LukiDev17 Profile</h1>
-
-    <h2 onclick="toggleVisibility('about')">About LukiDev17</h2>
-    <p id="about" style="display:none;">LukiDev17 is an active GitHub user with an interest in developing private servers and learning programming languages such as Python and Java.</p>
-
-    <h2 onclick="toggleVisibility('contact')">Contact Information</h2>
-    <p id="contact" style="display:none;">
-        Telegram: <a href="https://t.me/LukiDev" target="_blank">@LukiDev</a><br>
-        LinkedIn: <a href="https://www.linkedin.com/in/LukiDev17" target="_blank">LukiDev17</a>
-    </p>
-
-    <h2>Technological Skills</h2>
-    <ul>
-        <li>Python, C#, JavaScript, Java, HTML, CSS</li>
-        <li>Frameworks and Tools: Node.js, Django, Flask, Express, MongoDB, SQLite, React, Vue.js</li>
-        <li>Web development, API development, database management, DevOps, Cloud Computing (AWS, Azure)</li>
-    </ul>
-
-    <h2>Popular Repositories</h2>
-    <table>
-        <tr>
-            <th>Repository</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td><a href="https://github.com/LukiDev17/LukiDev17" target="_blank">LukiDev17</a></td>
-            <td>Configuration files for LukiDev17's GitHub profile.</td>
-        </tr>
-        <tr>
-            <td><a href="https://github.com/LukiDev17/BS-V29" target="_blank">BS-V29</a></td>
-            <td>A fork of the "BS-V29" project from LekmaDev, related to version 29 of Brawl Stars.</td>
-        </tr>
-        <tr>
-            <td><a href="https://github.com/LukiDev17/LukiDev.github" target="_blank">LukiDev.github</a></td>
-            <td>Another repository from LukiDev17, details are not available.</td>
-        </tr>
-    </table>
-
-    <h2>GitHub Profile</h2>
-    <p>Visit LukiDev17's GitHub profile: <a href="https://github.com/LukiDev17" target="_blank">https://github.com/LukiDev17</a></p>
+    <!-- Dein Inhalt -->
 </div>
 
 <div class="locked-message" id="locked-message">Die Seite wurde gesperrt!</div>
 
-<audio id="thunder-sound" src="https://youtu.be/rR1E1D0fe4w"></audio>
+<!-- YouTube Video als IFrame -->
+<div style="display:none;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/rR1E1D0fe4w?autoplay=1&loop=1&playlist=rR1E1D0fe4w" frameborder="0"></iframe>
+</div>
 
 <script>
 function toggleVisibility(id) {
@@ -227,14 +49,8 @@ function toggleVisibility(id) {
     }
 }
 
-var blitzElement = document.querySelector('.blitz');
-
 // Simuliere Blitz & Geräusch
 function simulateThunder() {
-    // Thunder sound
-    var thunderSound = document.getElementById('thunder-sound');
-    thunderSound.play();
-    
     // Blitz-Effekt
     blitzElement.style.opacity = 1; // Blitz sieht erstmal sichtbar aus
     setTimeout(() => {
