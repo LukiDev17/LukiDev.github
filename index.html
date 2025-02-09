@@ -20,7 +20,38 @@
             opacity: 0;
             animation: fadeIn 1.5s forwards;
         }
-        /* ... restlicher CSS ... */
+        .blitz {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            z-index: 999;
+            pointer-events: none;
+        }
+        .locked-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ff0000;
+            padding: 20px;
+            border: 2px solid #ffcc00;
+            border-radius: 10px;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -29,15 +60,10 @@
 
 <div class="container">
     <h1>LukiDev17 Profile</h1>
-    <!-- Dein Inhalt -->
+    <p>This is the profile content that will be hidden when the page is "locked".</p>
 </div>
 
-<div class="locked-message" id="locked-message">Die Seite wurde gesperrt!</div>
-
-<!-- YouTube Video als IFrame -->
-<div style="display:none;">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/rR1E1D0fe4w?autoplay=1&loop=1&playlist=rR1E1D0fe4w" frameborder="0"></iframe>
-</div>
+<div class="locked-message" id="locked-message">Die Seite wurde dauerhaft gesperrt!</div>
 
 <script>
 function toggleVisibility(id) {
@@ -49,23 +75,25 @@ function toggleVisibility(id) {
     }
 }
 
-// Simuliere Blitz & Geräusch
+// Simuliere Blitz & sperre die Seite
 function simulateThunder() {
+    var blitzElement = document.querySelector('.blitz');
+    
     // Blitz-Effekt
     blitzElement.style.opacity = 1; // Blitz sieht erstmal sichtbar aus
     setTimeout(() => {
-        blitzElement.style.opacity = 0;
+        blitzElement.style.opacity = 0; // Blitz wird unsichtbar
     }, 200); // Blitz hält nur 200ms
 
     // Seite sperren
     setTimeout(() => {
         document.body.style.pointerEvents = 'none'; // Deaktiviert alle Interaktionen
         document.querySelector('.container').style.display = 'none'; // Versteckt den Inhalt
-        document.getElementById('locked-message').style.display = 'block'; // Zeige gesperrte Nachricht
+        document.getElementById('locked-message').style.display = 'block'; // Zeigt gesperrte Nachricht
     }, 1000); // Nachricht erscheint nach 1 Sekunde
 }
 
-// Starte Simulation des Blitzes und Geräuschs nach einer Sekunde
+// Starte Simulation des Blitzes nach einer Sekunde
 setTimeout(simulateThunder, 1000);
 </script>
 
