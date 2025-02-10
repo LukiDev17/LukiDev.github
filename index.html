@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LukiDev17 Profile</title>
+    <title>LukiDev17 Profil</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,13 +12,21 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            transition: background-color 0.3s ease;
+        }
+        header {
+            background-color: #3a3f47;
+            padding: 20px;
+            text-align: center;
         }
         .container {
             width: 80%;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
             opacity: 0;
             animation: fadeIn 1.5s forwards;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.7);
         }
         .blitz {
             position: fixed;
@@ -29,6 +37,7 @@
             background-color: transparent;
             z-index: 999;
             pointer-events: none;
+            transition: opacity 0.5s ease;
         }
         .locked-message {
             display: none;
@@ -42,8 +51,8 @@
             border-radius: 10px;
             z-index: 1000;
             text-align: center;
+            animation: fadeIn 1s forwards;
         }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -52,38 +61,61 @@
                 opacity: 1;
             }
         }
+        @keyframes flash {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #3a3f47;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #000;
+        }
+        button:hover {
+            background-color: #e6b800;
+        }
     </style>
 </head>
 <body>
 
-<div class="blitz"></div> <!-- Blitz Effect -->
+<header>
+    <h1>LukiDev17 Profil</h1>
+</header>
+
+<div class="blitz"></div> <!-- Blitz Effekt -->
 
 <div class="container">
-    <h1>LukiDev17 Profile</h1>
-    <p>This is the profile content that will be hidden when the page is "locked".</p>
+    <h2>Willkommen!</h2>
+    <p>Dies ist der Profilinhalt, der gesperrt wird, wenn die Seite "gesperrt" ist.</p>
+    <button onclick="simulateThunder()">Seite sperren</button>
 </div>
 
 <div class="locked-message" id="locked-message">Die Seite wurde dauerhaft gesperrt!</div>
 
 <script>
-function toggleVisibility(id) {
-    var element = document.getElementById(id);
-    if (element.style.display === "none") {
-        element.style.display = "block";
-    } else {
-        element.style.display = "none";
-    }
-}
-
-// Simuliere Blitz & sperre die Seite
 function simulateThunder() {
     var blitzElement = document.querySelector('.blitz');
     
     // Blitz-Effekt
-    blitzElement.style.opacity = 1; // Blitz sieht erstmal sichtbar aus
+    blitzElement.style.opacity = 1; // Blitz sichtbar
     setTimeout(() => {
         blitzElement.style.opacity = 0; // Blitz wird unsichtbar
-    }, 200); // Blitz hält nur 200ms
+    }, 200); // Blitz für 200ms sichtbar
 
     // Seite sperren
     setTimeout(() => {
@@ -94,8 +126,14 @@ function simulateThunder() {
 }
 
 // Starte Simulation des Blitzes nach einer Sekunde
-setTimeout(simulateThunder, 1000);
+setTimeout(() => {
+    blitzElement.style.animation = 'flash 0.5s infinite';
+}, 1000);
 </script>
+
+<footer>
+    <p>&copy; 2023 LukiDev17. Alle Rechte vorbehalten.</p>
+</footer>
 
 </body>
 </html>
